@@ -102,6 +102,10 @@ ul {
 	list-style-type: none;
 }
 
+div > ul {
+  padding-left: 0;
+}
+
 li {
 	display: inline;
 	padding: 10px;
@@ -167,7 +171,7 @@ h1 {
 }
 
 p#title {
-	font-family: "Times New Roman";
+	font-family: "Lato"; /*"Times New Roman";*/
 	font-size: 30px;
 	text-align: center;
 }
@@ -268,6 +272,15 @@ hr {
   	text-decoration: none;
 }
 
+div.tags {
+  text-align: center;
+}
+
+a#favoriteStar {
+  display: inline-block;
+  padding-left: 10px;
+}
+
 a:link#favoriteStar,
 a:visited#favoriteStar{
   font-size: 32px;
@@ -299,7 +312,7 @@ div.recipe_sub_container {
   width: 70%; 
   height: auto; 
   margin: auto;
-  background-color: #ffffff; 
+  /*background-color: #ffffff; */
   padding-top: 30px;
   padding-bottom: 100px;
 }
@@ -310,6 +323,21 @@ div.recipe_sub_container {
 
 #ingred_form {
 	width: 200px;
+}
+
+#ingredients {
+  margin: 10px;
+}
+
+.ingredients,
+.instructions {
+  text-align: center;
+}
+
+.ingredients.inner,
+.instructions.inner {
+  display: inline-block;
+  text-align: left;
 }
 
 input[type = text] {
@@ -500,24 +528,38 @@ h2 {
 }
 
 p#homelanding {
-	padding-left: 100px;
+	/*padding-left: 100px;*/
 	padding-top: 100px;
 	font-weight: bold;
 	font-size: 30px;
+  text-align: center;
 }
 
 p#randomrecipe {
 	font-family: "Lato";
 	font-size: 20px;
-	padding-left: 100px;
+	/*padding-left: 100px;*/
 	padding-top: 10px;
+  text-align: center;
 }
 
 p#homerecipe {
 	font-family: "Lato";
 	font-size: 16px;
-	padding-left: 100px;
+	/*padding-left: 100px;*/
 	padding-top: 10px;
+  text-align: center;
+}
+
+div.recipeContainer {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h1#recipeTitle {
+  padding: 0;
 }
 
 p#faverror {
@@ -580,7 +622,9 @@ select {
   margin: -5px 30px 10px;
 }
 
-#addIngredient,#addInstruction{
+#addIngredient,
+#addInstruction,
+#addRecipe {
   flex: 1;
   padding: .5em;
   background-color: var(--scuSlateHex);
