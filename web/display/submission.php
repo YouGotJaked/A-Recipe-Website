@@ -57,7 +57,8 @@ if (isset($_POST["submit"])) {
         <input type="button" id="addInstruction" input-name="instructions[]" value="+" onclick="addInput(this.id)">
       </li>
       <li class="form-row">
-        <input type="submit" name="submit" value="Submit">
+        <input id="addRecipe" type="submit" name="submit" value="Submit">
+        <!--button type="submit" name="submit">Submit</button-->
       </li>
     </ul>
   </form>

@@ -1,11 +1,91 @@
+@font-face {
+  font-family: "SFMono";
+  src: url("fonts/SFMono/SFMonoRegular.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url("fonts/Lato/Lato-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("fonts/Nunito/Nunito-Regular.tff") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --scuStone: 78, 69, 64; /* #4e4540; */
+  --scuMarina: 3, 59, 76; /* #033b4c; */
+  --scuMarinaHex: #033b4c;
+  --scuLightBeige: 244, 242, 240; /* #f4f2f0; */
+  --scuLightBeigeHex: #f4f2f0;
+  --scuBeige: 223, 219, 211; /* #dfdbd3; */
+  --scuBeigeHex: #dfdbd3;
+  --scuCream: 233, 232, 213; /* #e9e8d5; */
+  --scuSlate: 84, 101, 117; /* #546575; */
+  --scuSlateHex: #546575;
+  --scuGold: 234, 170, 0; /* #eaaa00; */
+  --scuGoldHex: #eaaa00;
+}
+
 * {
-   margin: 0px;
-   padding: 0px;
+  margin: 0px;
+  padding: 0px;
+  font-family: "Lato";
+}
+
+body {
+  background: var(--scuLightBeigeHex);
+}
+
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: rgba(var(--scuSlate), 0.95);
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: rgba(var(--scuSlate), 0.85) transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }
 
 div.img {
-	margin-top: 10px;
-	display: inline;
+	/*margin-top: 10px;*/
+	display: inline-block;
 }
 
 #homemade {
@@ -18,14 +98,14 @@ div.img {
 #img_recipe {
 	width: 30%;
 	height: 30%;
-	display: block;
-    margin-left: auto;
-    margin-right: auto;
+	display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 div.head {
 	color: #ffffff;
-	font-family: Avenir;
+	font-family: "Lato";
 	font-size: 14px;
 	margin-top: 22px;
 	margin-right: 40px;
@@ -33,8 +113,73 @@ div.head {
 	float: right;
 }
 
+div.search_container {
+  padding-top: 15px;
+  margin-right: 25px;
+  /*display: inline-block;*/
+  float: right;
+}
+
+.search_bar{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /*width: 30%;*/
+}
+
+#searchBox {
+  display: inline-block;
+  font-size: 15px;
+  padding-left: 10px;
+  /*margin-right: 10px;*/
+  width: 200px;
+  height:35px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  border: 3px solid white;
+  border-radius: 5px 0 0 5px;
+  border-right: none;
+  background: white;
+  outline: none;
+}
+
+#searchBtn {
+  /*background: #ddd;*/
+  margin: 0;
+  border: 3px solid white;
+  border-radius: 0 5px 5px 0;
+  border-left: none;
+  cursor: pointer;
+  width: 100%;
+  height: 35px;
+  background: white;
+}
+
+#searchIcon {
+  /*margin: 5px;*/
+  border-radius: 50%;
+  border: 7px solid transparent;
+  background-clip: content-box;
+  transition: transform 0.5s ease, border 0.5s ease;
+}
+
+#searchBtn:hover #searchIcon {
+  background: rgba(204, 204, 204, 0.25);
+  border: 7px solid rgba(204, 204, 204, 0.25);
+  transform: scale(1.05);
+}
+
+#searchForm {
+  display: inline-flex;
+  align-items: center;
+}
+
 ul {
 	list-style-type: none;
+}
+
+div > ul {
+  padding-left: 0;
 }
 
 li {
@@ -44,7 +189,7 @@ li {
 
 li.recipe {
 	display: block;
-	font-family: Avenir;
+	font-family: "Lato";
 	padding-left: 110px;
 	padding-top: 10px;
 }
@@ -58,7 +203,7 @@ footer {
 	background-color: black;
 	color: #ffffff;
 	height: 42px;
-	font-family: Avenir;
+	font-family: "Lato";
 	font-size: 14px;
 	text-align: center;
 	padding-top: 23px;
@@ -66,11 +211,11 @@ footer {
 	width: 100%;
 	bottom: 0;
 }
-
+/*
 main {
 	background-color: #ffffff;
 }
-
+*/
 .main_container_left {
 	padding-top: 40px;
 	margin-left: 50px;
@@ -102,19 +247,19 @@ h1 {
 }
 
 p#title {
-	font-family: "Times New Roman";
+	font-family: "Lato"; /*"Times New Roman";*/
 	font-size: 30px;
 	text-align: center;
 }
 
 p#content {
-	font-family: Avenir;
+	font-family: "Lato";
 	font-size: 14px;
 	text-align: center;
 }
 
 div.checkboxes {
-	font-family: Avenir;
+	font-family: "Lato";
 	font-size: 14px;
 	text-align: left;
 	padding-left: 35%;
@@ -130,7 +275,7 @@ div.title_container {
 }
 
 div.preparation {
-	font-family: Avenir;
+	font-family: "Lato";
 	font-size: 14px;
 	text-align: left;
 	padding-left: 40px;
@@ -154,20 +299,20 @@ div.preparation {
 #my_account {
 	padding-top: 90px;
 	padding-left: 100px;
-	font-family: Avenir;
+	font-family: "Lato";
 	font-size: 18px;
 	font-weight: bold;
 }
 
 #contact {
 	padding-left: 110px;
-	font-family: Avenir;
+	font-family: "Lato";
 }
 
 #my_fav_recipes {
 	padding-top: 50px;
 	padding-left: 100px;
-	font-family: Avenir;
+	font-family: "Lato";
 	font-size: 18px;
 	font-weight: bold;
 }
@@ -203,10 +348,27 @@ hr {
   	text-decoration: none;
 }
 
+div.tags {
+  text-align: center;
+}
+
+a#favoriteStar {
+  display: inline-block;
+  padding-left: 10px;
+}
+
 a:link#favoriteStar,
 a:visited#favoriteStar{
   font-size: 32px;
   color: gold;
+  text-decoration: none;
+}
+
+a:link,
+a:visited,
+a:active,
+a:hover {
+  color: var(--scuMarinaHex);
   text-decoration: none;
 }
 
@@ -219,14 +381,14 @@ a:visited#favoriteStar{
 }
 
 div.recipe_sub_container {
-	font-family: Avenir;
+	font-family: "Lato";
 	font-size: 14px;
 	display: block;
   /*flex;*/
   width: 70%; 
   height: auto; 
   margin: auto;
-  background-color: #ffffff; 
+  /*background-color: #ffffff; */
   padding-top: 30px;
   padding-bottom: 100px;
 }
@@ -239,9 +401,25 @@ div.recipe_sub_container {
 	width: 200px;
 }
 
+#ingredients {
+  margin: 10px;
+}
+
+.ingredients,
+.instructions {
+  text-align: center;
+}
+
+.ingredients.inner,
+.instructions.inner {
+  display: inline-block;
+  text-align: left;
+}
+
 input[type = text] {
 	width: 100%;
-	margin: -5px 15px 10px;
+	/*margin: -5px 15px 10px;*/
+  /*margin: -5px 0 10px;*/
 }
 
 .form-row > input,
@@ -289,7 +467,7 @@ input[type=submit] {
 }
 
 .form-wrapper {
-	font-family: Avenir;
+	font-family: "Lato";
 }
 
 input[type = radio] {
@@ -301,13 +479,15 @@ label#cat_form {
   	margin: 0px 50px 5px -70px;
 }
 
+/*
 input[type = text] {
 	width: 100%;
 	margin: -5px 15px 10px;
 }
+*/
 
 p#signin {
-	font-family: Avenir;
+	font-family: "Lato";
 	font-size: 20px;
 	font-weight: bold;
 	text-align: center;
@@ -317,66 +497,77 @@ p#signin {
 .rectangle {
 	height: 300px;
 	width: 450px;
-	background-color: #ededed;
+	background-color: #dfdbd3; /*#ededed;*/
 	margin-top: 20px;
 	margin-left: auto;
 	margin-right: auto;
-}
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+} 
 
 .rectangle_signup {
 	height: 500px;
 	width: 450px;
-	background-color: #ededed;
+	background-color: #dfdbd3; /*#ededed;*/
 	margin-top: 20px;
 	margin-left: auto;
-	margin-right: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 #id {
 	margin-top: 5px;
 	width: 350px;
 	height: 30px;
-	margin-left: 10%;
+	/*margin-left: 10%;*/
 }
 
 #signID {
-	font-family: Avenir;
+	font-family: "Lato";
 	font-size: 16px;
 	font-weight: bold;
 	padding-top: 25px;
-	margin-left: 10%;
+/*	margin-left: 10%; */
 }
 
 #signinfo {
-	font-family: Avenir;
+	font-family: "Lato";
 	font-size: 13px;
 	text-align: center;
 }
 
-button {
+button:not(#searchBtn) {
 	width: 80%;
-  	height: 40px;
-  	padding: 10px;
-  	margin: 20px;
-  	background-color: #BEBEBE;
-  	color: #FFFFFF;
-  	display: block;
-  	margin-left: auto;
+  height: 40px;
+  padding: 10px;
+  margin: 20px;
+  background-color: #BEBEBE;
+  color: black;
+  display: block;
+  margin-left: auto;
 	margin-right: auto;
+  border: 0;
+  border-radius: 5px;
+  box-shadow: inset 0 0 0 50px rgba(var(--scuLightBeige), 1);
+  transition: all 0.25s ease;
 }
 
-.search_container{
-    padding-top: 20px;
+button:hover:enabled:not(#searchBtn) {
+  transform: scale(1.05, 1.05);
+  box-shadow: inset 0 0 0 0px rgba(var(--scuLightBeige), 1);
+  color: white;
+  background: rgba(var(--scuMarina), 1);
 }
 
-.search_bar{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 30%;
-}
    
-input[type=text]{
+input[type=text]:not(#searchBox){
     display: inline-block;
     font-size: 15px;
     margin-right: 0;
@@ -402,7 +593,7 @@ button#search:hover {
 }
 
 p#app {
-	font-family: Avenir;
+	font-family: "Lato";
 	font-size: 15px;
 	text-align: center;
 }
@@ -415,28 +606,49 @@ h2 {
 }
 
 p#homelanding {
-	padding-left: 100px;
-	padding-top: 100px;
+	/*padding-left: 100px;*/
+	padding-top: 50px; /*100px;*/
 	font-weight: bold;
 	font-size: 30px;
+  text-align: center;
 }
 
 p#randomrecipe {
-	font-family: Avenir;
+	font-family: "Lato";
 	font-size: 20px;
-	padding-left: 100px;
+	/*padding-left: 100px;*/
 	padding-top: 10px;
+  text-align: center;
 }
 
 p#homerecipe {
-	font-family: Avenir;
+	font-family: "Lato";
 	font-size: 16px;
-	padding-left: 100px;
+	/*padding-left: 100px;*/
 	padding-top: 10px;
+  text-align: center;
+}
+
+div.recipeContainer {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div.signupContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1#recipeTitle {
+  padding: 0;
 }
 
 p#faverror {
-	font-family: Avenir;
+	font-family: "Lato";
 	text-align: center;
 	padding-top: 100px;
 	font-size: 16px;
@@ -464,21 +676,23 @@ a#faverror1:hover {
 }
 
 p#signup1 {
-	font-family: Avenir;
+	font-family: "Lato";
 	font-size: 20px;
 	font-weight: bold;
 	text-align: center;
 	margin-top: 30px;
 }
 
+/*
 button#signupsubmit {
 	margin-top: 40px;
 }
+*/
 
 p#serving {
 	text-align: center;
 	font-size: 14px;
-	font-family: Avenir;
+	font-family: "Lato";
 }
 
 li.form-category {
@@ -487,4 +701,23 @@ li.form-category {
 
 #category_container {
 	margin-left: 10px;
+}
+
+select {
+  flex: 3;
+  padding: .5em;
+  margin: -5px 30px 10px;
+}
+
+#addIngredient,
+#addInstruction,
+#addRecipe {
+  flex: 1;
+  padding: .5em;
+  background-color: var(--scuSlateHex);
+  color: white;
+  padding: 10px 5px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
 }

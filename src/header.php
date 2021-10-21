@@ -36,14 +36,15 @@
     </div>
     <div class ="search_container">
     <div class ="search_bar">
-    <form action="<?=LINK_SRC?>header.php" method="POST">
-        <input type="text" placeholder="Search for 'veggie lasagna'" name="keyword">
-        <button type="submit" name = search>
-          <i class="fa fa-search" style="font-size:18px; color:black;"></i>
+    <form id="searchForm" action="<?=LINK_SRC?>header.php" method="POST">
+        <input type="text" id="searchBox" placeholder="Search for 'veggie lasagna'" name="keyword">
+        <button type="submit" id="searchBtn" name=search>
+          <i id="searchIcon" class="fa fa-search" style="font-size:18px; color:black;"></i>
         </button>
       </form>
     </div>
     <style>
+    /*
     .search_container {
       padding-top: 20px;
     }
@@ -78,7 +79,7 @@
 
     button:hover {
       background: #ccc;
-    }
+    }*/
     </style>
   </header>
 <?php

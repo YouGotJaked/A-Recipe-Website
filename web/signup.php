@@ -43,7 +43,9 @@ if (isset($_POST["submit"])) {
   header("Location: ".LINK_WEB."display/home.php");
 }
 ?>
+<div class="signupContainer">
 <p id = "signup1">Sign up for an account</p>
+<div class="rectangle_signup">
 <form method="POST" action="signup.php">
   <p id = "signID">Email</p><input id = "id" type="email" name="email" placeholder="bbronco@scu.edu" required>
   <p id = "signID">First name</p><input id = "id" type="text" name="firstName" placeholder="Bucky" required>
@@ -53,4 +55,5 @@ if (isset($_POST["submit"])) {
   <button id = "signupsubmit" name="submit">SIGN UP</button>
   <!--input type="submit" name="submit" value="Submit"-->
 </form>
+</div></div>
 <?php require_once DIR_SRC."footer.php"; ?>

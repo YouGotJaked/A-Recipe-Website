@@ -19,7 +19,10 @@ class RecipeTagView extends View {
     $html = '<div class="tags"><ul>';
     
     foreach($recipe_tag_obj as $tag) {
-      $html .= '<li>'.$tag->descr_short.'</li>';
+      #$html .= '<li>'.$tag->descr_short.'</li>';
+      $html .= '<li><div class="tooltip">'.$tag->descr_short;
+      $html .= '<span class="tooltiptext">'.$tag->descr.'</span>';
+      $html .= '</div></li>';
     }
 
     $html .= '</ul></div>';

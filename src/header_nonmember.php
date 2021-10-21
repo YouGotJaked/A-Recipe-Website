@@ -11,9 +11,8 @@
 <body>
   <header>
     <div class = "img">
-      <a href="#">
+      <a href="<?=LINK_WEB?>login.php">
         <img src="<?=LINK_IMG?>homemade.png" id="homemade"/>
-        <!--SHOULD LINK BACK TO ITSELF-->
       </a>
     </div>
   </header>
