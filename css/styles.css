@@ -1,6 +1,64 @@
+@font-face {
+  font-family: "SFMono";
+  src: url("fonts/SFMono/SFMonoRegular.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url("fonts/Lato/Lato-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("fonts/Nunito/Nunito-Regular.tff") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --scuLightBeige: #f4f2f0;
+  --scuMarina: #033b4c;
+  --scuSlate: #546575;
+  --scuStone: #4e4540;
+}
+
 * {
-   margin: 0px;
-   padding: 0px;
+  margin: 0px;
+  padding: 0px;
+  font-family: "Lato";
+}
+
+body {
+  background: var(--scuLightBeige);
+}
+
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }
 
 div.img {
@@ -25,7 +83,7 @@ div.img {
 
 div.head {
 	color: #ffffff;
-	font-family: Avenir;
+	font-family: "Lato";
 	font-size: 14px;
 	margin-top: 22px;
 	margin-right: 40px;
@@ -44,7 +102,7 @@ li {
 
 li.recipe {
 	display: block;
-	font-family: Avenir;
+	font-family: "Lato";
 	padding-left: 110px;
 	padding-top: 10px;
 }
@@ -58,7 +116,7 @@ footer {
 	background-color: black;
 	color: #ffffff;
 	height: 42px;
-	font-family: Avenir;
+	font-family: "Lato";
 	font-size: 14px;
 	text-align: center;
 	padding-top: 23px;
@@ -66,11 +124,11 @@ footer {
 	width: 100%;
 	bottom: 0;
 }
-
+/*
 main {
 	background-color: #ffffff;
 }
-
+*/
 .main_container_left {
 	padding-top: 40px;
 	margin-left: 50px;
@@ -108,13 +166,13 @@ p#title {
 }
 
 p#content {
-	font-family: Avenir;
+	font-family: "Lato";
 	font-size: 14px;
 	text-align: center;
 }
 
 div.checkboxes {
-	font-family: Avenir;
+	font-family: "Lato";
 	font-size: 14px;
 	text-align: left;
 	padding-left: 35%;
@@ -130,7 +188,7 @@ div.title_container {
 }
 
 div.preparation {
-	font-family: Avenir;
+	font-family: "Lato";
 	font-size: 14px;
 	text-align: left;
 	padding-left: 40px;
@@ -154,20 +212,20 @@ div.preparation {
 #my_account {
 	padding-top: 90px;
 	padding-left: 100px;
-	font-family: Avenir;
+	font-family: "Lato";
 	font-size: 18px;
 	font-weight: bold;
 }
 
 #contact {
 	padding-left: 110px;
-	font-family: Avenir;
+	font-family: "Lato";
 }
 
 #my_fav_recipes {
 	padding-top: 50px;
 	padding-left: 100px;
-	font-family: Avenir;
+	font-family: "Lato";
 	font-size: 18px;
 	font-weight: bold;
 }
@@ -210,6 +268,14 @@ a:visited#favoriteStar{
   text-decoration: none;
 }
 
+a:link,
+a:visited,
+a:active,
+a:hover {
+  color: var(--scuMarina);
+  text-decoration: none;
+}
+
 #recipe_sub_form {
 	font-family: "Times New Roman";
 	text-align: center; 
@@ -219,7 +285,7 @@ a:visited#favoriteStar{
 }
 
 div.recipe_sub_container {
-	font-family: Avenir;
+	font-family: "Lato";
 	font-size: 14px;
 	display: block;
   /*flex;*/
@@ -289,7 +355,7 @@ input[type=submit] {
 }
 
 .form-wrapper {
-	font-family: Avenir;
+	font-family: "Lato";
 }
 
 input[type = radio] {
@@ -307,7 +373,7 @@ input[type = text] {
 }
 
 p#signin {
-	font-family: Avenir;
+	font-family: "Lato";
 	font-size: 20px;
 	font-weight: bold;
 	text-align: center;
@@ -317,16 +383,17 @@ p#signin {
 .rectangle {
 	height: 300px;
 	width: 450px;
-	background-color: #ededed;
+	background-color: #dfdbd3; /*#ededed;*/
 	margin-top: 20px;
 	margin-left: auto;
 	margin-right: auto;
-}
+  border-radius: 10px;
+} 
 
 .rectangle_signup {
 	height: 500px;
 	width: 450px;
-	background-color: #ededed;
+	background-color: #dfdbd3; /*#ededed;*/
 	margin-top: 20px;
 	margin-left: auto;
 	margin-right: auto;
@@ -340,7 +407,7 @@ p#signin {
 }
 
 #signID {
-	font-family: Avenir;
+	font-family: "Lato";
 	font-size: 16px;
 	font-weight: bold;
 	padding-top: 25px;
@@ -348,7 +415,7 @@ p#signin {
 }
 
 #signinfo {
-	font-family: Avenir;
+	font-family: "Lato";
 	font-size: 13px;
 	text-align: center;
 }
@@ -402,7 +469,7 @@ button#search:hover {
 }
 
 p#app {
-	font-family: Avenir;
+	font-family: "Lato";
 	font-size: 15px;
 	text-align: center;
 }
@@ -422,21 +489,21 @@ p#homelanding {
 }
 
 p#randomrecipe {
-	font-family: Avenir;
+	font-family: "Lato";
 	font-size: 20px;
 	padding-left: 100px;
 	padding-top: 10px;
 }
 
 p#homerecipe {
-	font-family: Avenir;
+	font-family: "Lato";
 	font-size: 16px;
 	padding-left: 100px;
 	padding-top: 10px;
 }
 
 p#faverror {
-	font-family: Avenir;
+	font-family: "Lato";
 	text-align: center;
 	padding-top: 100px;
 	font-size: 16px;
@@ -464,7 +531,7 @@ a#faverror1:hover {
 }
 
 p#signup1 {
-	font-family: Avenir;
+	font-family: "Lato";
 	font-size: 20px;
 	font-weight: bold;
 	text-align: center;
@@ -478,7 +545,7 @@ button#signupsubmit {
 p#serving {
 	text-align: center;
 	font-size: 14px;
-	font-family: Avenir;
+	font-family: "Lato";
 }
 
 li.form-category {
@@ -488,3 +555,19 @@ li.form-category {
 #category_container {
 	margin-left: 10px;
 }
+
+select {
+      flex: 3;
+          padding: .5em;
+              margin: -5px 30px 10px;
+            }
+            #addIngredient,#addInstruction{
+                  flex: 1;
+                      padding: .5em;
+                          background-color: black;
+                              color: white;
+                                  padding: 10px 5px;
+                                      border: none;
+                                          border-radius: 10px;
+                                              cursor: pointer;
+                                            }
