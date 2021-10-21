@@ -25,7 +25,7 @@ div.img {
 
 div.head {
 	color: #ffffff;
-	font-family: Avenir;
+	font-family: Arial;
 	font-size: 14px;
 	margin-top: 22px;
 	margin-right: 40px;
@@ -44,7 +44,7 @@ li {
 
 li.recipe {
 	display: block;
-	font-family: Avenir;
+	font-family: Arial;
 	padding-left: 110px;
 	padding-top: 10px;
 }
@@ -58,7 +58,7 @@ footer {
 	background-color: black;
 	color: #ffffff;
 	height: 42px;
-	font-family: Avenir;
+	font-family: Arial;
 	font-size: 14px;
 	text-align: center;
 	padding-top: 23px;
@@ -108,13 +108,13 @@ p#title {
 }
 
 p#content {
-	font-family: Avenir;
+	font-family: Arial;
 	font-size: 14px;
 	text-align: center;
 }
 
 div.checkboxes {
-	font-family: Avenir;
+	font-family: Arial;
 	font-size: 14px;
 	text-align: left;
 	padding-left: 35%;
@@ -130,7 +130,7 @@ div.title_container {
 }
 
 div.preparation {
-	font-family: Avenir;
+	font-family: Arial;
 	font-size: 14px;
 	text-align: left;
 	padding-left: 40px;
@@ -154,20 +154,20 @@ div.preparation {
 #my_account {
 	padding-top: 90px;
 	padding-left: 100px;
-	font-family: Avenir;
+	font-family: Arial;
 	font-size: 18px;
 	font-weight: bold;
 }
 
 #contact {
 	padding-left: 110px;
-	font-family: Avenir;
+	font-family: Arial;
 }
 
 #my_fav_recipes {
 	padding-top: 50px;
 	padding-left: 100px;
-	font-family: Avenir;
+	font-family: Arial;
 	font-size: 18px;
 	font-weight: bold;
 }
@@ -219,7 +219,7 @@ a:visited#favoriteStar{
 }
 
 div.recipe_sub_container {
-	font-family: Avenir;
+	font-family: Arial;
 	font-size: 14px;
 	display: block;
   /*flex;*/
@@ -272,7 +272,7 @@ input[type = text] {
 }
 
 input[type=submit] {
-	background-color: black;
+    background-color: black;
     color: white;
     padding: 10px 15px;
     border: none;
@@ -289,7 +289,7 @@ input[type=submit] {
 }
 
 .form-wrapper {
-	font-family: Avenir;
+	font-family: Arial;
 }
 
 input[type = radio] {
@@ -307,7 +307,7 @@ input[type = text] {
 }
 
 p#signin {
-	font-family: Avenir;
+	font-family: Arial;
 	font-size: 20px;
 	font-weight: bold;
 	text-align: center;
@@ -340,7 +340,7 @@ p#signin {
 }
 
 #signID {
-	font-family: Avenir;
+	font-family: Arial;
 	font-size: 16px;
 	font-weight: bold;
 	padding-top: 25px;
@@ -348,7 +348,7 @@ p#signin {
 }
 
 #signinfo {
-	font-family: Avenir;
+	font-family: Arial;
 	font-size: 13px;
 	text-align: center;
 }
@@ -402,7 +402,7 @@ button#search:hover {
 }
 
 p#app {
-	font-family: Avenir;
+	font-family: Arial;
 	font-size: 15px;
 	text-align: center;
 }
@@ -422,21 +422,21 @@ p#homelanding {
 }
 
 p#randomrecipe {
-	font-family: Avenir;
+	font-family: Arial;
 	font-size: 20px;
 	padding-left: 100px;
 	padding-top: 10px;
 }
 
 p#homerecipe {
-	font-family: Avenir;
+	font-family: Arial;
 	font-size: 16px;
 	padding-left: 100px;
 	padding-top: 10px;
 }
 
 p#faverror {
-	font-family: Avenir;
+	font-family: Arial;
 	text-align: center;
 	padding-top: 100px;
 	font-size: 16px;
@@ -464,7 +464,7 @@ a#faverror1:hover {
 }
 
 p#signup1 {
-	font-family: Avenir;
+	font-family: Arial;
 	font-size: 20px;
 	font-weight: bold;
 	text-align: center;
@@ -478,7 +478,7 @@ button#signupsubmit {
 p#serving {
 	text-align: center;
 	font-size: 14px;
-	font-family: Avenir;
+	font-family: Arial;
 }
 
 li.form-category {
