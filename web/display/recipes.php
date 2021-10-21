@@ -38,9 +38,9 @@ foreach($recipe_obj as $recipe) {
       echo '</ul></div>';
     }
     $category = $recipe->category;
-    echo '<div class="'.$category.'"><h2>'.$category.'</h2><ul>';
+    echo '<div class="'.$category.'"><p id="homelanding">'.$category.'</p><ul>';
   }
-  echo '<li><p id = "app"><a href="'.LINK_WEB.'display/recipe.php?id='.$recipe->recipe_id.'" target="_blank">'.$recipe->name.'</a></p></li>';
+  echo '<li><p id = "homerecipe"><a href="'.LINK_WEB.'display/recipe.php?id='.$recipe->recipe_id.'" target="_blank">'.$recipe->name.'</a></p></li>';
 }
 // at least one recipe displayed
 if (count($recipe_obj)) {

@@ -70,8 +70,8 @@ body {
 }
 
 div.img {
-	margin-top: 10px;
-	display: inline;
+	/*margin-top: 10px;*/
+	display: inline-block;
 }
 
 #homemade {
@@ -84,9 +84,9 @@ div.img {
 #img_recipe {
 	width: 30%;
 	height: 30%;
-	display: block;
-    margin-left: auto;
-    margin-right: auto;
+	display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 div.head {
@@ -97,6 +97,67 @@ div.head {
 	margin-right: 40px;
 	display: block;
 	float: right;
+}
+
+div.search_container {
+  padding-top: 15px;
+  margin-right: 25px;
+  /*display: inline-block;*/
+  float: right;
+}
+
+.search_bar{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /*width: 30%;*/
+}
+
+#searchBox {
+  display: inline-block;
+  font-size: 15px;
+  padding-left: 10px;
+  /*margin-right: 10px;*/
+  width: 200px;
+  height:35px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  border: 3px solid white;
+  border-radius: 5px 0 0 5px;
+  border-right: none;
+  background: white;
+  outline: none;
+}
+
+#searchBtn {
+  /*background: #ddd;*/
+  margin: 0;
+  border: 3px solid white;
+  border-radius: 0 5px 5px 0;
+  border-left: none;
+  cursor: pointer;
+  width: 100%;
+  height: 35px;
+  background: white;
+}
+
+#searchIcon {
+  /*margin: 5px;*/
+  border-radius: 50%;
+  border: 7px solid transparent;
+  background-clip: content-box;
+  transition: transform 0.5s ease, border 0.5s ease;
+}
+
+#searchBtn:hover #searchIcon {
+  background: rgba(204, 204, 204, 0.25);
+  border: 7px solid rgba(204, 204, 204, 0.25);
+  transform: scale(1.05);
+}
+
+#searchForm {
+  display: inline-flex;
+  align-items: center;
 }
 
 ul {
@@ -468,7 +529,7 @@ p#signin {
 	text-align: center;
 }
 
-button {
+button:not(#searchBtn) {
 	width: 80%;
   height: 40px;
   padding: 10px;
@@ -484,25 +545,15 @@ button {
   transition: all 0.25s ease;
 }
 
-button:hover:enabled {
+button:hover:enabled:not(#searchBtn) {
   transform: scale(1.05, 1.05);
   box-shadow: inset 0 0 0 0px rgba(var(--scuLightBeige), 1);
   color: white;
   background: rgba(var(--scuMarina), 1);
 }
 
-.search_container{
-    padding-top: 20px;
-}
-
-.search_bar{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 30%;
-}
    
-input[type=text]{
+input[type=text]:not(#searchBox){
     display: inline-block;
     font-size: 15px;
     margin-right: 0;
@@ -542,7 +593,7 @@ h2 {
 
 p#homelanding {
 	/*padding-left: 100px;*/
-	padding-top: 100px;
+	padding-top: 50px; /*100px;*/
 	font-weight: bold;
 	font-size: 30px;
   text-align: center;
