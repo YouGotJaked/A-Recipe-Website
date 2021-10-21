@@ -30,7 +30,6 @@ $recipe_obj = json_decode($select);
 // TODO: create separate source file for this functionality
 // display recipes
 $category = null;
-echo '<br/><br/><br/>'
 foreach($recipe_obj as $recipe) {
   // display each distinct recipe category
   if ($category != $recipe->category) {
