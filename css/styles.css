@@ -20,10 +20,17 @@
 }
 
 :root {
-  --scuLightBeige: #f4f2f0;
-  --scuMarina: #033b4c;
-  --scuSlate: #546575;
-  --scuStone: #4e4540;
+  --scuStone: 78, 69, 64; /* #4e4540; */
+  --scuMarina: 3, 59, 76; /* #033b4c; */
+  --scuMarinaHex: #033b4c;
+  --scuLightBeige: 244, 242, 240; /* #f4f2f0; */
+  --scuLightBeigeHex: #f4f2f0;
+  --scuBeige: 223, 219, 211; /* #dfdbd3; */
+  --scuCream: 233, 232, 213; /* #e9e8d5; */
+  --scuSlate: 84, 101, 117; /* #546575; */
+  --scuSlateHex: #546575;
+  --scuGold: 234, 170, 0; /* #eaaa00; */
+  --scuGoldHex: #eaaa00;
 }
 
 * {
@@ -33,7 +40,7 @@
 }
 
 body {
-  background: var(--scuLightBeige);
+  background: var(--scuLightBeigeHex);
 }
 
 /* Tooltip container */
@@ -272,7 +279,7 @@ a:link,
 a:visited,
 a:active,
 a:hover {
-  color: var(--scuMarina);
+  color: var(--scuMarinaHex);
   text-decoration: none;
 }
 
@@ -422,14 +429,25 @@ p#signin {
 
 button {
 	width: 80%;
-  	height: 40px;
-  	padding: 10px;
-  	margin: 20px;
-  	background-color: #BEBEBE;
-  	color: #FFFFFF;
-  	display: block;
-  	margin-left: auto;
+  height: 40px;
+  padding: 10px;
+  margin: 20px;
+  background-color: #BEBEBE;
+  color: black;
+  display: block;
+  margin-left: auto;
 	margin-right: auto;
+  border: 0;
+  border-radius: 5px;
+  box-shadow: inset 0 0 0 50px rgba(var(--scuLightBeige), 1);
+  transition: all 0.25s ease;
+}
+
+button:hover:enabled {
+  transform: scale(1.05, 1.05);
+  box-shadow: inset 0 0 0 0px rgba(var(--scuLightBeige), 1);
+  color: white;
+  background: rgba(var(--scuMarina), 1);
 }
 
 .search_container{
@@ -557,17 +575,18 @@ li.form-category {
 }
 
 select {
-      flex: 3;
-          padding: .5em;
-              margin: -5px 30px 10px;
-            }
-            #addIngredient,#addInstruction{
-                  flex: 1;
-                      padding: .5em;
-                          background-color: black;
-                              color: white;
-                                  padding: 10px 5px;
-                                      border: none;
-                                          border-radius: 10px;
-                                              cursor: pointer;
-                                            }
+  flex: 3;
+  padding: .5em;
+  margin: -5px 30px 10px;
+}
+
+#addIngredient,#addInstruction{
+  flex: 1;
+  padding: .5em;
+  background-color: var(--scuSlateHex);
+  color: white;
+  padding: 10px 5px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
