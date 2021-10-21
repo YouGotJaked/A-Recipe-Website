@@ -26,6 +26,7 @@
   --scuLightBeige: 244, 242, 240; /* #f4f2f0; */
   --scuLightBeigeHex: #f4f2f0;
   --scuBeige: 223, 219, 211; /* #dfdbd3; */
+  --scuBeigeHex: #dfdbd3;
   --scuCream: 233, 232, 213; /* #e9e8d5; */
   --scuSlate: 84, 101, 117; /* #546575; */
   --scuSlateHex: #546575;
@@ -342,7 +343,8 @@ div.recipe_sub_container {
 
 input[type = text] {
 	width: 100%;
-	margin: -5px 15px 10px;
+	/*margin: -5px 15px 10px;*/
+  /*margin: -5px 0 10px;*/
 }
 
 .form-row > input,
@@ -402,10 +404,12 @@ label#cat_form {
   	margin: 0px 50px 5px -70px;
 }
 
+/*
 input[type = text] {
 	width: 100%;
 	margin: -5px 15px 10px;
 }
+*/
 
 p#signin {
 	font-family: "Lato";
@@ -423,6 +427,10 @@ p#signin {
 	margin-left: auto;
 	margin-right: auto;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 } 
 
 .rectangle_signup {
@@ -431,14 +439,19 @@ p#signin {
 	background-color: #dfdbd3; /*#ededed;*/
 	margin-top: 20px;
 	margin-left: auto;
-	margin-right: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 #id {
 	margin-top: 5px;
 	width: 350px;
 	height: 30px;
-	margin-left: 10%;
+	/*margin-left: 10%;*/
 }
 
 #signID {
@@ -446,7 +459,7 @@ p#signin {
 	font-size: 16px;
 	font-weight: bold;
 	padding-top: 25px;
-	margin-left: 10%;
+/*	margin-left: 10%; */
 }
 
 #signinfo {
@@ -558,6 +571,13 @@ div.recipeContainer {
   justify-content: center;
 }
 
+div.signupContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 h1#recipeTitle {
   padding: 0;
 }
@@ -598,9 +618,11 @@ p#signup1 {
 	margin-top: 30px;
 }
 
+/*
 button#signupsubmit {
 	margin-top: 40px;
 }
+*/
 
 p#serving {
 	text-align: center;
