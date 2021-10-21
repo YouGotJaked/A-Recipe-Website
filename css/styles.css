@@ -21,6 +21,7 @@
 
 :root {
   --scuStone: 78, 69, 64; /* #4e4540; */
+  --scuStoneHex: #4e4540;
   --scuMarina: 3, 59, 76; /* #033b4c; */
   --scuMarinaHex: #033b4c;
   --scuLightBeige: 244, 242, 240; /* #f4f2f0; */
@@ -48,13 +49,20 @@ body {
 .tooltip {
   position: relative;
   display: inline-block;
-  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+  /*border-bottom: 1px dotted var(--scuLightBeigeHex);*/ /* If you want dots under the hoverable text */
+  color: var(--scuLightBeigeHex);
+  border: 5px solid var(--scuStoneHex);
+  background: var(--scuStoneHex);
+  border-radius: 50%;
+  line-height: 40px;
+  width: 40px;
+  height: 40px;
 }
 
 /* Tooltip text */
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 120px;
+  width: 160px;
   background-color: rgba(var(--scuSlate), 0.95);
   color: #fff;
   text-align: center;
@@ -62,9 +70,9 @@ body {
   border-radius: 6px;
   position: absolute;
   z-index: 1;
-  bottom: 150%;
+  bottom: 135%;
   left: 50%;
-  margin-left: -60px;
+  margin-left: -80px;
 }
 
 .tooltip .tooltiptext::after {
@@ -75,7 +83,7 @@ body {
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: rgba(var(--scuSlate), 0.85) transparent transparent transparent;
+  border-color: rgba(var(--scuSlate), 0.95) transparent transparent transparent;
 }
 
 /* Show the tooltip text when you mouse over the tooltip container */
@@ -284,7 +292,8 @@ div.preparation {
 }
 
 #ing {
-	padding-top: 20px;
+	/*padding-top: 20px;*/
+  padding: 15px;
 	text-align: center;
 	font-weight: bold;
 	font-size: 20px;
@@ -571,14 +580,15 @@ input[type=text]:not(#searchBox){
     display: inline-block;
     font-size: 15px;
     margin-right: 0;
-    width: 70%;
+    /*width: 70%;*/
     height:35px;
 }
 
+/*
 input[type=text]:focus {
     border: 3px solid #555;
 }
-
+*/
 button#search {
     display: inline-block;
     background: #ddd;
