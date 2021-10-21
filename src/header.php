@@ -82,6 +82,7 @@
     }*/
     </style>
   </header>
+  <main>
 <?php
 
 //To be displayed
@@ -89,17 +90,16 @@
 /* Beginning of Display Database Info*/
 
     // Check if the form has been submitted:
-if (isset($_POST["search"])) {
-
+if (isset($_POST["search"]) && isset($_POST["keyword"])) {
+  /*
   if (isset($_POST['keyword'])) {
     $keyword = $_POST['keyword'];
   }
   session_start();
   $_SESSION['keyword'] = $keyword;
-
+  */
     //Display search result
-  header("Location: ".LINK_WEB."display/search_results.php"); 
- 
+  header("Location: ".LINK_WEB."display/search_results.php?keyword=".$_POST["keyword"]); 
 }  
  //End of main isset conditional
 

@@ -21,7 +21,7 @@ $buffer = preg_replace('/(<title>)(.*?)(<\/title>)/i', '$1' . $title . '$3', $bu
 echo $buffer;
     
 
-$keyword = $_SESSION['keyword']; //from search bar form
+$keyword = $_GET["keyword"]; //from search bar form
 
 //Make connection to the database
 #require_once('mysqli_connect.php'); //connection file
@@ -38,43 +38,37 @@ $recipe_obj = json_decode($select);
 #$result_displaycheck = mysqli_num_rows($result_displayq);
 #$row = mysqli_fetch_all($result_displayq,MYSQLI_ASSOC);
 ?>
-    <main>
-    	<div class = "search_results">
-            <p style = "padding-top: 90px; padding-left: 100px; font-family: Avenir; font-size: 18px; font-weight: bold;">SEARCH RESULTS</p>
-            <hr/>
-            <ul>
-                <style>
-                    li.result{
-                        display: block;
-	                    font-family: Avenir;
-	                    padding-left: 110px;
-	                    padding-top: 10px;
-                        font-weight: bold;
-                    }
-                </style>
-                <!--li class = "result">Recipe 1</li-->
-                <!--li class = "result">Recipe 2</li-->
-                </ul>
-                
-                <?php
-                // Display database information if search returns a result
-                if (!empty($recipe_obj)) {
-                    foreach ($recipe_obj as $recipe) {
-                    echo '<ul>';
-                    echo '<li class = "result"><a href="'.LINK_WEB.'display/recipe.php?id='.$recipe->recipe_id.'">'.$recipe->name.'</li>'; // Link to recipe?
-                    echo '</ul>';
-                    }
-
-                } else {
-                    echo '<ul>';
-                    echo '<li class = "result">No recipes matched your search. Please try again.</li>';
-                    echo '</ul>';
-                }
-                // Close the database connection
-                #mysqli_close($dbc); 
-?>
-                
-        </div>
-    </main>
-
+<div class = "search_results">
+  <!--p style = "padding-top: 90px; padding-left: 100px; font-family: Avenir; font-size: 18px; font-weight: bold;">SEARCH RESULTS</p-->
+  <p style = "padding-top: 90px; padding-left: 100px; font-size: 18px; font-weight: bold;">SEARCH RESULTS</p>
+  <hr class="hr_search">
+  <style>
+    li.result{
+      display: block;
+      /*font-family: Avenir;*/
+	    padding-left: 110px;
+	    padding-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+  <ul>
+  <?php
+  // Display database information if search returns a result
+  if (!empty($recipe_obj)) {
+    foreach ($recipe_obj as $recipe) {
+      #echo '<ul>';
+      echo '<li class="result"><a href="'.LINK_WEB.'display/recipe.php?id='.$recipe->recipe_id.'" target="_blank">'.$recipe->name.'</a></li>'; // Link to recipe?
+      #echo '</ul>';
+    }
+  } else {
+    #echo '<ul>';
+    echo '<li class = "result">No recipes matched your search. Please try again.</li>';
+    #echo '</ul>';
+  }
+  echo '</ul>';
+  // Close the database connection
+  #mysqli_close($dbc); 
+  ?>              
+  </ul>
+</div>
 <?php require_once DIR_SRC."footer.php"; ?>

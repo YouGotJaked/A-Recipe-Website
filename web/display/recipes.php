@@ -47,7 +47,6 @@ if (count($recipe_obj)) {
   echo '</ul></div>';
 }
 
-
 // footer
 require_once DIR_SRC."footer.php";
 ?>

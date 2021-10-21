@@ -26,8 +26,8 @@ class RecipeView extends View {
     $recipe_tag_vw->display($id);
     
     $ul = '<ul>';
-    $ul .= '<li><p id = "serving">Serving Size: '.$recipe_obj->serving_size.'</p></li>';
-    $ul .= '<ll><p id = "serving">Category: '.$recipe_obj->category.'</p></li>';
+    $ul .= '<li><p id = "serving"><b>Serving Size:</b> '.$recipe_obj->serving_size.'</p></li>';
+    $ul .= '<ll><p id = "serving"><b>Category:</b> '.$recipe_obj->category.'</p></li>';
     $ul .= '</ul>';
     echo $ul;
 
