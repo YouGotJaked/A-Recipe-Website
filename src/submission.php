@@ -78,7 +78,7 @@ function submit_recipe() {
     $types = "ii";
 
     // only skip if both match groups are empty
-    if (!(empty($matches["quantity"]) || empty($matches["unit"]))) {
+    if (!(empty($matches["quantity"]) && empty($matches["unit"]))) {
       $params_arr["amount"] = trim($matches["quantity"]." ".$matches["unit"]);
       $types .= "s";
     }
