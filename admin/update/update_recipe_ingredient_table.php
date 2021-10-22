@@ -15,7 +15,8 @@ $rows += $recipe_ingredient->update(["amount" => "1 tbsp"], ["recipe_ingredient_
  */
 
 // update baked oatmeal
-$update = $recipe_ingredient->update(["amount" => "2"], ["recipe_ingredient_id" => 38], "si");
+//$update = $recipe_ingredient->update(["amount" => "2"], ["recipe_ingredient_id" => 38], "si");
 
+$update = $recipe_ingredient->update(["amount" => "1"], ["recipe_ingredient_id" => 66], "si");
 echo "Updated ".$update." row(s).";
 ?>
