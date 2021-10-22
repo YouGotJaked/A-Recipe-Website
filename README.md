@@ -1,4 +1,4 @@
-# A-Recipe-Website
+# Homemade
 A website for hosting and sharing recipes.
 ## Description
 Homemade is a website design to act as a digital cookbook. You along with our tight-knit community can submit, share, and favorite recipes. A live version can be accessed on the [SCU engineering website](https://ssl.students.engr.scu.edu/~jday/MSIS-2630/A-Recipe-Website).
