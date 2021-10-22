@@ -29,34 +29,38 @@ if (isset($_POST["submit"])) {
   <p id="recipe_sub_form">Recipe Submission Form</p>
   <form method="POST" action="submission.php">
     <ul class="form-wrapper">
-      <li class="form-row">  
+      <li class="form-row recipe-name">  
         <label for="recipeName">Recipe Name</label>
         <input type="text" id="recipeName" name="recipeName" placeholder="Pasta Primavera" required>
       </li>
-      <li class="form-row">
+      <li class="form-row serving-size">
         <label for="servingSize">Serving Size</label>
         <input type="range" name="servingSize" min="1" max="16" value="4" onInput="this.nextElementSibling.value = this.value" required>
         <output>4</output>
       </li>
-      <li class="form-row">
+      <li class="form-row category">
         <label for="category">Category</label>
         <select name="category" required><?=get_category_options()?></select>
       </li>
-      <li class="form-row">
+      <li class="form-row tags">
         <label for="tag">Tags</label>
         <select name="tag[]" multiple><?=get_tag_options()?></select>
       </li>
-      <li class="form-row">
+      <li class="form-row ingredients">
         <label for="ingredients">Ingredients</label>
-        <input type="text" name="ingredients[]" placeholder="16 oz penne pasta" required>
-        <input type="button" id="addIngredient" input-name="ingredients[]" value="+" onclick="addInput(this.id)">
+        <div class="form-row sub ingr" index="0">
+          <input type="text" name="ingredients[]" placeholder="16 oz penne pasta" required>
+          <input type="button" id="addIngredient" input-name="ingredients[]" value="+" onclick="addInput(this.id)">
+        </div>
       </li>
-      <li class="form-row">
+      <li class="form-row instructions">
         <label for="instructions">Instructions</label>
-        <input type="text" name="instructions[]" placeholder="In a medium pot over high heat, bring salted water to a boil..." required>
-        <input type="button" id="addInstruction" input-name="instructions[]" value="+" onclick="addInput(this.id)">
+          <div class="form-row sub inst" index="0">
+            <input type="text" name="instructions[]" placeholder="In a medium pot over high heat, bring salted water to a boil..." required>
+          <input type="button" id="addInstruction" input-name="instructions[]" value="+" onclick="addInput(this.id)">
+        </div>
       </li>
-      <li class="form-row">
+      <li class="form-row submit">
         <input id="addRecipe" type="submit" name="submit" value="Submit">
         <!--button type="submit" name="submit">Submit</button-->
       </li>
@@ -66,10 +70,27 @@ if (isset($_POST["submit"])) {
 <script>
 function addInput(btnId) {
   const btn = document.getElementById(btnId);
-  const input = document.createElement("input");
-  input.setAttribute("type", "text");
-  input.setAttribute("name", btn.getAttribute("input-name"));;
-  btn.parentNode.insertBefore(input, btn);
+  const input = btn.previousSibling;
+  const formRowSub = btn.parentNode;
+  const newFormRowSub = formRowSub.cloneNode(true);
+  const newInput = newFormRowSub.getElementsByTagName("input")[0];
+
+  let index = newFormRowSub.getAttribute("index");
+  newFormRowSub.setAttribute("index", parseInt(index) + 1);
+  newInput.value = "";
+  newInput.removeAttribute("placeholder");
+
+  if (btnId.startsWith("add")) {
+    btn.setAttribute("id", "removeIngredient");
+    btn.setAttribute("value", "-");
+    btn.removeAttribute("onclick");
+    btn.onclick = () => removeInput(formRowSub.className, formRowSub.getAttribute("index"));
+    insertAfter(newFormRowSub, formRowSub);
+  }
+}
+
+function removeInput(cls, index) {
+  document.querySelectorAll('[class="'+cls+'"][index="'+index+'"]')[0].remove();
 }
 </script>
 <?php require_once DIR_SRC."footer.php"; ?>

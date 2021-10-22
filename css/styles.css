@@ -386,24 +386,24 @@ a:hover {
 }
 
 #recipe_sub_form {
-	font-family: "Times New Roman";
+	/*font-family: "Times New Roman";*/
 	text-align: center; 
 	font-weight: bold; 
 	font-size: 30px;
-	padding-top: 70px;
+	padding-top: 50px;
 }
 
 div.recipe_sub_container {
-	font-family: "Lato";
+	/*font-family: "Lato";*/
 	font-size: 14px;
 	display: block;
   /*flex;*/
-  width: 70%; 
+  width: 50%; 
   height: auto; 
   margin: auto;
   /*background-color: #ffffff; */
-  padding-top: 30px;
-  padding-bottom: 100px;
+  /*padding-top: 30px;*/
+  /*padding-bottom: 100px;*/
 }
 
 #form-text {
@@ -428,18 +428,24 @@ div.recipe_sub_container {
   display: inline-block;
   text-align: left;
 }
-
-input[type = text] {
+/*
+.form-row > input[type="text"] {
 	width: 100%;
-	/*margin: -5px 15px 10px;*/
-  /*margin: -5px 0 10px;*/
+  margin-bottom: 10px;
+	margin: -5px 15px 10px;
+  margin: -5px 0 10px;
+}
+*/
+.form-row > label {
+  margin-bottom: 5px;
 }
 
+/*
 .form-row > input,
 .form-row > textarea { 
 	flex: 3; 
 }
-
+*/
 .form-row > input,
 .form-row > button,
 .form-row > textarea {
@@ -447,14 +453,63 @@ input[type = text] {
 }
 
 .form-row {
-    display: flex;
-    justify-content: flex-end;
-    padding: .5em; 
+  display: flex;
+  flex-direction: column;
+  /*padding: .5em;*/ 
+  text-align: left;
 }
 
 .form-wrapper {
-    list-style-type: none;
-    padding: 0;
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.form-row.recipe-name,
+.form-row.ingredients,
+.form-row.instructions {
+  flex-basis: 100%;
+}
+/*
+.form-row.ingredients input[type="text"],
+.form-row.instructions input[type="text"] {
+  flex-basis: 50%;
+}
+
+.form-row.ingredients input[type="button"],
+.form-row.instructions input[type="button"] {
+  flex-basis: 15%;
+}
+*/
+.form-row.submit {
+  flex-basis: 50%;
+  margin: auto;
+}
+
+.form-row.serving-size,
+.form-row.category,
+.form-row.tags {
+  flex-basis: 30%;
+}
+
+.form-row.sub {
+  flex-direction: row;
+  margin: 10px 0;
+}
+
+.form-row.sub input[type="text"] {
+  flex-basis: 100%;
+}
+
+.form-row.sub input[type="button"] {
+  flex-basis: 9%;
+  margin-left: 5px;
+  font-size: 24px;
+  background-color: var(--scuSlateHex);
+  color: white;
+  border: none;
+  border-radius: 50%;
 }
 
 .form-row > textarea{
@@ -464,11 +519,11 @@ input[type = text] {
 
 input[type=submit] {
 	background-color: black;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 #output {
@@ -479,9 +534,11 @@ input[type=submit] {
 	margin: -5px 20px 10px;
 }
 
+/*
 .form-wrapper {
 	font-family: "Lato";
 }
+*/
 
 input[type = radio] {
 	width: 100%;
@@ -716,22 +773,19 @@ li.form-category {
 #category_container {
 	margin-left: 10px;
 }
-
+/*
 select {
   flex: 3;
   padding: .5em;
   margin: -5px 30px 10px;
 }
-
-#addIngredient,
-#addInstruction,
+*/
 #addRecipe {
-  flex: 1;
   padding: .5em;
   background-color: var(--scuSlateHex);
   color: white;
   padding: 10px 5px;
   border: none;
-  border-radius: 10px;
+  border-radius: 5px;
   cursor: pointer;
 }
