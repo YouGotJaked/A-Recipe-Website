@@ -23,6 +23,7 @@ This directory contains the web-facing pages that users will actually see when t
 ## Setup
 ### Prerequisites
 PHP version 7.2.24 or later.
+
 MariaDB 5.5.68 or later.
 ### Database
 #### Configuration
