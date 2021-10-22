@@ -11,9 +11,13 @@ define("DIR_IMG", DIR_ROOT."img/");
 define("DIR_JS", DIR_ROOT."js/");
 
 // for links
-define("LINK_BASE", (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]");
-define("LINK_SUBDIR", "/~jday/MSIS-2630/A-Recipe-Website");
-define("LINK_ROOT", LINK_BASE.LINK_SUBDIR."/");
+if (isset($_SERVER["HTTP_HOST"]) && strpos($_SERVER["HTTP_HOST"], "scu.edu") !== false) {
+  define("LINK_BASE", (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]");
+  define("LINK_SUBDIR", "/~jday/MSIS-2630/A-Recipe-Website");
+  define("LINK_ROOT", LINK_BASE.LINK_SUBDIR."/");
+} else {
+  define("LINK_ROOT", "/");
+}
 define("LINK_CSS", LINK_ROOT."css/");
 define("LINK_SRC", LINK_ROOT."src/");
 define("LINK_WEB", LINK_ROOT."web/");

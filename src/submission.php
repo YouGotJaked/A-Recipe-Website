@@ -78,7 +78,7 @@ function submit_recipe() {
     $types = "ii";
 
     // only skip if both match groups are empty
-    if (!(empty($matches["quantity"]) || empty($matches["unit"]))) {
+    if (!(empty($matches["quantity"]) && empty($matches["unit"]))) {
       $params_arr["amount"] = trim($matches["quantity"]." ".$matches["unit"]);
       $types .= "s";
     }
@@ -91,5 +91,8 @@ function submit_recipe() {
   foreach ($_POST["instructions"] as $idx=>$instr) {
     $recipe_instruction->insert(["recipe_id" => $recipe_id, "step" => $instr, "step_index" => $idx], "isi");
   }
+  
+  // redirect to recipe
+  header("Location: ".LINK_WEB."display/recipe.php?id=".$recipe_id);
 }
 ?>

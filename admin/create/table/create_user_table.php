@@ -6,7 +6,7 @@ $query = "CREATE TABLE IF NOT EXISTS `user` (
 `first_name` varchar(255) DEFAULT NULL,
 `last_name` varchar(255) DEFAULT NULL,
 `email` varchar(255) NOT NULL UNIQUE,
-`password_hash` varchar(255) NOT NULL,
+`password_hash` char(60) NOT NULL,
 PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=37;
 ";
