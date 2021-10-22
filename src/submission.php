@@ -91,5 +91,8 @@ function submit_recipe() {
   foreach ($_POST["instructions"] as $idx=>$instr) {
     $recipe_instruction->insert(["recipe_id" => $recipe_id, "step" => $instr, "step_index" => $idx], "isi");
   }
+  
+  // redirect to recipe
+  header("Location: ".LINK_WEB."display/recipe.php?id=".$recipe_id);
 }
 ?>

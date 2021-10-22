@@ -25,24 +25,24 @@ require_once DIR_SRC."header_nonmember.php";
 if (isset($_POST["submit"])) {
   try {
     $_SESSION["login"] = login($_POST["email"], $_POST["password"]);   
-        // login successful
-        if ($_SESSION["login"]) {
-          $user = new User();
-          $json_obj = json_decode($user->select(["email" => $_POST["email"]], "s"))[0];
-          // track user info
-          $_SESSION["email"] = $json_obj->email;
-          $_SESSION["name"] = $json_obj->first_name;
-          $_SESSION["user"] = $json_obj->user_id;
-          // redirect to home page
-          header("Location: ".LINK_WEB."display/home.php");
-        } else {
-          echo '<p id="login-error">Invalid email or password.</p>'."<br>";
-          unset($_SESSION["login"]);
-        }
-      } catch (Exception $e) {
-        echo $e . "<br>";
-      }
+    // login successful
+    if ($_SESSION["login"]) {
+      $user = new User();
+      $json_obj = json_decode($user->select(["email" => $_POST["email"]], "s"))[0];
+      // track user info
+      $_SESSION["email"] = $json_obj->email;
+      $_SESSION["name"] = $json_obj->first_name;
+      $_SESSION["user"] = $json_obj->user_id;
+      // redirect to home page
+      header("Location: ".LINK_WEB."display/home.php");
+    } else {
+      echo '<p id="login-error">Invalid email or password.</p>'."<br>";
+      unset($_SESSION["login"]);
     }
+  } catch (Exception $e) {
+    echo $e . "<br>";
+  }
+}
 ?>
 <main>
   <div class="signin_container">
