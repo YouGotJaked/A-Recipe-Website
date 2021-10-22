@@ -35,8 +35,8 @@ if (isset($_POST["submit"])) {
       </li>
       <li class="form-row serving-size">
         <label for="servingSize">Serving Size</label>
-        <input type="range" name="servingSize" min="1" max="16" value="4" onInput="this.nextElementSibling.value = this.value" required>
         <output>4</output>
+        <input type="range" name="servingSize" min="1" max="16" value="4" onInput="this.previousElementSibling.value = this.value" required>
       </li>
       <li class="form-row category">
         <label for="category">Category</label>

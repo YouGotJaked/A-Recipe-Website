@@ -20,6 +20,8 @@
 }
 
 :root {
+  --scuPMS202: 134, 38, 51;
+  --scuPMS202Hex: #862633;
   --scuStone: 78, 69, 64; /* #4e4540; */
   --scuStoneHex: #4e4540;
   --scuMarina: 3, 59, 76; /* #033b4c; */
@@ -445,18 +447,22 @@ div.recipe_sub_container {
 .form-row > textarea { 
 	flex: 3; 
 }
-*/
+
 .form-row > input,
 .form-row > button,
 .form-row > textarea {
     padding: .5em;
 }
-
+*/
 .form-row {
   display: flex;
   flex-direction: column;
   /*padding: .5em;*/ 
   text-align: left;
+}
+
+.form-row > input[type="text"] {
+  padding: 0.5em;
 }
 
 .form-wrapper {
@@ -491,6 +497,17 @@ div.recipe_sub_container {
 .form-row.category,
 .form-row.tags {
   flex-basis: 30%;
+  flex-grow: 1;
+}
+
+.form-row.serving-size input {
+  padding-top: 15px;
+}
+
+.form-row.serving-size output {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .form-row.sub {
@@ -505,7 +522,7 @@ div.recipe_sub_container {
 .form-row.sub input[type="button"] {
   flex-basis: 9%;
   margin-left: 5px;
-  font-size: 24px;
+  font-size: 42px;
   background-color: var(--scuSlateHex);
   color: white;
   border: none;
@@ -579,7 +596,7 @@ p#signin {
 } 
 
 .rectangle_signup {
-	height: 500px;
+	height: 600px;
 	width: 450px;
 	background-color: #dfdbd3; /*#ededed;*/
 	margin-top: 20px;
@@ -597,6 +614,7 @@ p#signin {
 	width: 350px;
 	height: 30px;
 	/*margin-left: 10%;*/
+  padding: 5px;
 }
 
 #signID {
@@ -611,6 +629,40 @@ p#signin {
 	font-family: "Lato";
 	font-size: 13px;
 	text-align: center;
+}
+
+/*
+#addIngredient,
+#addInstruction {
+  background: var(--scuGoldHex);
+}
+
+#removeIngredient,
+#removeInstruction {
+  background: var(--scuPMS202Hex);
+}
+*/
+#addRecipe {
+  width: 80%;
+  height: 40px;
+  padding: 10px;
+  margin: 20px;
+  background-color: #BEBEBE;
+  color: black;
+  display: block;
+  margin-left: auto;
+	margin-right: auto;
+  border: 0;
+  border-radius: 5px;
+  box-shadow: inset 0 0 0 50px rgba(var(--scuBeige), 1);
+  transition: all 0.25s ease;
+}
+ 
+#addRecipe:hover:enabled {
+  transform: scale(1.025, 1.025);
+  box-shadow: inset 0 0 0 0px rgba(var(--scuBeige), 1);
+  color: white;
+  background: rgba(var(--scuMarina), 1);
 }
 
 button:not(#searchBtn) {
@@ -630,14 +682,14 @@ button:not(#searchBtn) {
 }
 
 button:hover:enabled:not(#searchBtn) {
-  transform: scale(1.05, 1.05);
+  transform: scale(1.025, 1.025);
   box-shadow: inset 0 0 0 0px rgba(var(--scuLightBeige), 1);
   color: white;
   background: rgba(var(--scuMarina), 1);
 }
 
    
-input[type=text]:not(#searchBox){
+input[type=text]:not(#searchBox):not(#id){
     display: inline-block;
     font-size: 15px;
     margin-right: 0;
@@ -780,12 +832,3 @@ select {
   margin: -5px 30px 10px;
 }
 */
-#addRecipe {
-  padding: .5em;
-  background-color: var(--scuSlateHex);
-  color: white;
-  padding: 10px 5px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
