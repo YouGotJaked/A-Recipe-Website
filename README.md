@@ -28,13 +28,13 @@ MariaDB 5.5.68 or later.
 #### Configuration
 To connect this website with your database, you will need to create a local configuration file on your server. Navigate to the `/local` subdirectory and create a file called `config.ini`. Open this file in a text editor and insert the following information:
 
-`
+```
 [database]
 host = "<server name>"
 user = "<database username>"
 pass = "<database password>"
 name = "<database>"
-`
+```
 
 Save this file and run the test script under `test/database_test.php` to verify you can connect to the database.
 #### Creation
@@ -64,14 +64,15 @@ Lastly, we will need to insert some preliminary values. Navigate to the `admin/i
 #### Access Restrictions
 Depending on your server configuration, you may need to set up a `.htaccess` file in the root directory to prevent nefarious users from accessing restricted parts of your website. Create a `.htaccess` file in your root directory and insert the following information:
 
-`
+```
 RewriteEngine On
 # redirect protected subdirectories to login page
 RewriteCond %{REQUEST_METHOD} !POST
 RewriteRule ^(admin|local|src|test)/(.*)$ web/login.php [L,NC,R=302;SameSite=Strict;Secure]
 # can't disable index browsing, so hide files
 IndexIgnore *
-`
+```
+
 **NOTE**: You should only create this file after running the database setup scripts in the `/admin` subdirectory, as you won't be able to access them after creating this file. However, if you need to make any changes you can temporarily comment on the rewrite rules (not recommended).
 #### Sessions
 As an additional security measure, sessions are limited to one hour in length. If you leave the website and return within the hour, you will be redirected to the home page under your account. If over an hour has passed, you will be redirected to the login page and asked to sign in again. 
