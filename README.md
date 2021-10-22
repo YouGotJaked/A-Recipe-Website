@@ -14,6 +14,8 @@ This directory contains image assets.
 This directory contains all JavaScript functionality.
 #### local
 This directory contains your database configuration file.
+#### sql
+This directory contains the databse setup script.
 #### src
 This directory contains majority of the back-end functionality. 
 #### test
@@ -39,7 +41,9 @@ name = "<database>"
 
 Save this file and run the test script under `test/database_test.php` to verify you can connect to the database.
 #### Creation
-Once you confirm connection to your database, you will need to create the tables, views, and insert some preliminary values. Navigate to the `admin/create/table` subdirectory. Run the PHP scripts in the following order:
+Once you confirm connection to your database, you will need to create the tables, views, and insert some preliminary values. There are two ways to setup the table structure. The easiest is to simply run the `sql/setup.sql` script in your database. 
+
+However, if you cannot access your database directly, there are PHP scripts than can replicate this behavior. Navigate to the `admin/create/table` subdirectory. Run the PHP scripts in the following order:
 1. `create_user_table.php`
 2. `create_recipe_table.php`
 3. `create_favorite_table.php`
