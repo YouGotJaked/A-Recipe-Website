@@ -20,7 +20,10 @@
 }
 
 :root {
+  --scuPMS202: 134, 38, 51;
+  --scuPMS202Hex: #862633;
   --scuStone: 78, 69, 64; /* #4e4540; */
+  --scuStoneHex: #4e4540;
   --scuMarina: 3, 59, 76; /* #033b4c; */
   --scuMarinaHex: #033b4c;
   --scuLightBeige: 244, 242, 240; /* #f4f2f0; */
@@ -48,13 +51,20 @@ body {
 .tooltip {
   position: relative;
   display: inline-block;
-  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+  /*border-bottom: 1px dotted var(--scuLightBeigeHex);*/ /* If you want dots under the hoverable text */
+  color: var(--scuLightBeigeHex);
+  border: 5px solid var(--scuStoneHex);
+  background: var(--scuStoneHex);
+  border-radius: 50%;
+  line-height: 40px;
+  width: 40px;
+  height: 40px;
 }
 
 /* Tooltip text */
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 120px;
+  width: 160px;
   background-color: rgba(var(--scuSlate), 0.95);
   color: #fff;
   text-align: center;
@@ -62,9 +72,9 @@ body {
   border-radius: 6px;
   position: absolute;
   z-index: 1;
-  bottom: 150%;
+  bottom: 135%;
   left: 50%;
-  margin-left: -60px;
+  margin-left: -80px;
 }
 
 .tooltip .tooltiptext::after {
@@ -75,7 +85,7 @@ body {
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: rgba(var(--scuSlate), 0.85) transparent transparent transparent;
+  border-color: rgba(var(--scuSlate), 0.95) transparent transparent transparent;
 }
 
 /* Show the tooltip text when you mouse over the tooltip container */
@@ -211,11 +221,11 @@ footer {
 	width: 100%;
 	bottom: 0;
 }
-/*
+
 main {
-	background-color: #ffffff;
+  padding-bottom: 100px;
 }
-*/
+
 .main_container_left {
 	padding-top: 40px;
 	margin-left: 50px;
@@ -284,7 +294,8 @@ div.preparation {
 }
 
 #ing {
-	padding-top: 20px;
+	/*padding-top: 20px;*/
+  padding: 15px;
 	text-align: center;
 	font-weight: bold;
 	font-size: 20px;
@@ -321,7 +332,11 @@ hr {
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 10px;
-	width: 90%;
+	width: 50%;
+}
+
+.hr_search {
+  width: 90%;
 }
 
 .head a:link,
@@ -373,24 +388,31 @@ a:hover {
 }
 
 #recipe_sub_form {
-	font-family: "Times New Roman";
+	/*font-family: "Times New Roman";*/
 	text-align: center; 
 	font-weight: bold; 
 	font-size: 30px;
-	padding-top: 70px;
+	padding-top: 50px;
 }
 
 div.recipe_sub_container {
-	font-family: "Lato";
+	/*font-family: "Lato";*/
 	font-size: 14px;
 	display: block;
   /*flex;*/
-  width: 70%; 
+  width: 50%; 
   height: auto; 
   margin: auto;
   /*background-color: #ffffff; */
-  padding-top: 30px;
-  padding-bottom: 100px;
+  /*padding-top: 30px;*/
+  /*padding-bottom: 100px;*/
+}
+
+#login-error {
+  text-align: center;
+  transform: translateY(500px);
+  color: var(--scuPMS202Hex);
+  font-weight: bold;
 }
 
 #form-text {
@@ -415,13 +437,19 @@ div.recipe_sub_container {
   display: inline-block;
   text-align: left;
 }
-
-input[type = text] {
+/*
+.form-row > input[type="text"] {
 	width: 100%;
-	/*margin: -5px 15px 10px;*/
-  /*margin: -5px 0 10px;*/
+  margin-bottom: 10px;
+	margin: -5px 15px 10px;
+  margin: -5px 0 10px;
+}
+*/
+.form-row > label {
+  margin-bottom: 5px;
 }
 
+/*
 .form-row > input,
 .form-row > textarea { 
 	flex: 3; 
@@ -432,16 +460,82 @@ input[type = text] {
 .form-row > textarea {
     padding: .5em;
 }
-
+*/
 .form-row {
-    display: flex;
-    justify-content: flex-end;
-    padding: .5em; 
+  display: flex;
+  flex-direction: column;
+  /*padding: .5em;*/ 
+  text-align: left;
+}
+
+.form-row > input[type="text"] {
+  padding: 0.5em;
 }
 
 .form-wrapper {
-    list-style-type: none;
-    padding: 0;
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.form-row.recipe-name,
+.form-row.ingredients,
+.form-row.instructions {
+  flex-basis: 100%;
+}
+/*
+.form-row.ingredients input[type="text"],
+.form-row.instructions input[type="text"] {
+  flex-basis: 50%;
+}
+
+.form-row.ingredients input[type="button"],
+.form-row.instructions input[type="button"] {
+  flex-basis: 15%;
+}
+*/
+.form-row.submit {
+  flex-basis: 50%;
+  margin: auto;
+}
+
+.form-row.serving-size,
+.form-row.category,
+.form-row.tags {
+  flex-basis: 30%;
+  flex-grow: 1;
+}
+
+.form-row.serving-size input {
+  padding-top: 15px;
+}
+
+.form-row.serving-size output {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.form-row.sub {
+  flex-direction: row;
+  margin: 10px 0;
+}
+
+.form-row.sub input[type="text"] {
+  flex-basis: 100%;
+}
+
+.form-row.sub input[type="button"] {
+  //flex-basis: 9%;
+  margin-left: 5px;
+  font-size: 42px;
+  background-color: var(--scuSlateHex);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 54px;
+  height: 54px;
 }
 
 .form-row > textarea{
@@ -451,11 +545,11 @@ input[type = text] {
 
 input[type=submit] {
 	background-color: black;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 #output {
@@ -466,9 +560,11 @@ input[type=submit] {
 	margin: -5px 20px 10px;
 }
 
+/*
 .form-wrapper {
 	font-family: "Lato";
 }
+*/
 
 input[type = radio] {
 	width: 100%;
@@ -509,7 +605,7 @@ p#signin {
 } 
 
 .rectangle_signup {
-	height: 500px;
+	height: 600px;
 	width: 450px;
 	background-color: #dfdbd3; /*#ededed;*/
 	margin-top: 20px;
@@ -527,6 +623,7 @@ p#signin {
 	width: 350px;
 	height: 30px;
 	/*margin-left: 10%;*/
+  padding: 5px;
 }
 
 #signID {
@@ -541,6 +638,40 @@ p#signin {
 	font-family: "Lato";
 	font-size: 13px;
 	text-align: center;
+}
+
+/*
+#addIngredient,
+#addInstruction {
+  background: var(--scuGoldHex);
+}
+
+#removeIngredient,
+#removeInstruction {
+  background: var(--scuPMS202Hex);
+}
+*/
+#addRecipe {
+  width: 80%;
+  height: 40px;
+  padding: 10px;
+  margin: 20px;
+  background-color: #BEBEBE;
+  color: black;
+  display: block;
+  margin-left: auto;
+	margin-right: auto;
+  border: 0;
+  border-radius: 5px;
+  box-shadow: inset 0 0 0 50px rgba(var(--scuBeige), 1);
+  transition: all 0.25s ease;
+}
+ 
+#addRecipe:hover:enabled {
+  transform: scale(1.025, 1.025);
+  box-shadow: inset 0 0 0 0px rgba(var(--scuBeige), 1);
+  color: white;
+  background: rgba(var(--scuMarina), 1);
 }
 
 button:not(#searchBtn) {
@@ -560,25 +691,26 @@ button:not(#searchBtn) {
 }
 
 button:hover:enabled:not(#searchBtn) {
-  transform: scale(1.05, 1.05);
+  transform: scale(1.025, 1.025);
   box-shadow: inset 0 0 0 0px rgba(var(--scuLightBeige), 1);
   color: white;
   background: rgba(var(--scuMarina), 1);
 }
 
    
-input[type=text]:not(#searchBox){
+input[type=text]:not(#searchBox):not(#id){
     display: inline-block;
     font-size: 15px;
     margin-right: 0;
-    width: 70%;
+    /*width: 70%;*/
     height:35px;
 }
 
+/*
 input[type=text]:focus {
     border: 3px solid #555;
 }
-
+*/
 button#search {
     display: inline-block;
     background: #ddd;
@@ -630,7 +762,7 @@ p#homerecipe {
 }
 
 div.recipeContainer {
-  padding: 10px 0;
+  padding: 50px 0 10px 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -647,6 +779,16 @@ h1#recipeTitle {
   padding: 0;
 }
 
+p#favorerror {
+	text-align: center;
+	padding-top: 100px;
+	font-size: 16px;
+}
+
+p#favorerror > a {
+  font-weight: bold;
+}
+/*
 p#faverror {
 	font-family: "Lato";
 	text-align: center;
@@ -658,7 +800,7 @@ a#faverror1:link {
   	color: #000000;
   	text-decoration: none;
 } 
-
+*/
 a#faverror1:visited {
   	color: #000000;
   	text-decoration: none;
@@ -702,22 +844,10 @@ li.form-category {
 #category_container {
 	margin-left: 10px;
 }
-
+/*
 select {
   flex: 3;
   padding: .5em;
   margin: -5px 30px 10px;
 }
-
-#addIngredient,
-#addInstruction,
-#addRecipe {
-  flex: 1;
-  padding: .5em;
-  background-color: var(--scuSlateHex);
-  color: white;
-  padding: 10px 5px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-}
+*/

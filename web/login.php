@@ -36,7 +36,8 @@ if (isset($_POST["submit"])) {
           // redirect to home page
           header("Location: ".LINK_WEB."display/home.php");
         } else {
-          echo "Invalid email or password." . "<br>";
+          echo '<p id="login-error">Invalid email or password.</p>'."<br>";
+          unset($_SESSION["login"]);
         }
       } catch (Exception $e) {
         echo $e . "<br>";

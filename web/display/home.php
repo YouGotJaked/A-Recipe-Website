@@ -33,7 +33,7 @@ $recipe_obj = $recipe_obj[$recipe_rand];
 
 // display recipe
 $h1 = '<p id="homelanding">Welcome '.$_SESSION["name"].'!</p>';
-$h2 = '<p id="randomrecipe">Here\'s a random recipe:</p><br/><br/>';
+$h2 = '<p id="randomrecipe">Here\'s a random recipe:</p>';
 echo $h1.$h2;
 '<p id="homerecipe">'.$recipe_vw->display($recipe_obj->recipe_id).'</p>';
 
