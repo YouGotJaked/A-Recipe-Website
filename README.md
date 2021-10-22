@@ -109,6 +109,7 @@ Upon clicking the submit recipe button, the user is taken to the newly created r
 Clicking on the logout link in the top header will end the current user's session and redirect them to the login page.
 ## Future Considerations
 In order to avoid scope creep, we had to eliminate many potential features in order to get our MVP to market on time. These are some of the features we would like to add going forward:
+- Responsive design: modify design to be responsive for a variety of devices and screen sizes.
 - Recipe images: users will be able to submit images either during recipe submission or when visiting a pre-existing recipe page.
 - Account types: include different account types like `user`, `moderator`, and `admin` to enable varying functionality for different users.
 - Content moderation: have recipe submissions go through a content moderation queue to uphold the recipe quality expectation.
