@@ -10,7 +10,14 @@ class Database {
 
   private function __construct() {
     $config = parse_ini_file($this::CREDS);
-    $this->conn = new mysqli($config["host"], $config["user"], $config["pass"], $config["name"]);
+    // allow support for non-standard ports
+    if (isset($config["port"])) {
+      $this->conn = new mysqli($config["host"], $config["user"], $config["pass"], $config["name"], $config["port"]);
+    } else {
+      $this->conn = new mysqli($config["host"], $config["user"], $config["pass"], $config["name"]);
+    }
+    // JSON requires UTF-8
+    $this->conn->set_charset('utf8');
   }
 
   // prevent duplication

@@ -168,3 +168,43 @@ VALUES ('Meal Prep Friendly', 'MPF')
 , ('Pescetarian', 'P')
 , ('Vegetarian', 'V')
 , ('Vegan', 'VE');
+
+-- insert one recipe
+INSERT INTO recipe (name, serving_size, recipe_category_id)
+VALUES ('Pot de Crème', 4, (SELECT recipe_category_id FROM recipe_category WHERE category='Dessert'));
+
+SELECT LAST_INSERT_ID()
+INTO @recipe_id;
+
+INSERT INTO ingredient (name) VALUES ('Chocolate');
+INSERT INTO recipe_ingredient (recipe_id, ingredient_id, amount)
+VALUES (@recipe_id, LAST_INSERT_ID(), '4 oz');
+
+INSERT INTO ingredient (name) VALUES ('Instant coffee');
+INSERT INTO recipe_ingredient (recipe_id, ingredient_id, amount)
+VALUES (@recipe_id, LAST_INSERT_ID(), '1/2 tsp');
+
+INSERT INTO ingredient (name) VALUES ('Salt');
+INSERT INTO recipe_ingredient (recipe_id, ingredient_id, amount)
+VALUES (@recipe_id, LAST_INSERT_ID(), '1/16 tsp');
+
+INSERT INTO ingredient (name) VALUES ('Heavy cream');
+INSERT INTO recipe_ingredient (recipe_id, ingredient_id, amount)
+VALUES (@recipe_id, LAST_INSERT_ID(), '1 cup');
+
+INSERT INTO ingredient (name) VALUES ('Sugar');
+INSERT INTO recipe_ingredient (recipe_id, ingredient_id, amount)
+VALUES (@recipe_id, LAST_INSERT_ID(), '3 tbsp');
+
+INSERT INTO ingredient (name) VALUES ('Vanilla extract');
+INSERT INTO recipe_ingredient (recipe_id, ingredient_id, amount)
+VALUES (@recipe_id, LAST_INSERT_ID(), '1/2 tsp');
+
+SET @step_index := -1;
+INSERT INTO recipe_instruction (recipe_id, step, step_index)
+VALUES (@recipe_id, 'In a small pot over medium heat, add the heavy cream, sugar, and vanilla extract', @step_index := @step_index+1)
+, (@recipe_id, 'Meanwhile, chop the chocolate into very small pieces.', @step_index := @step_index+1)
+, (@recipe_id, 'Add the chopped chocolate to a mixing bowl along with the instant coffee and salt.', @step_index := @step_index+1)
+, (@recipe_id, 'Once the cream mixture starts to simmer, remove it from the heat and pour into the mixing bowl.', @step_index := @step_index+1)
+, (@recipe_id, 'Let sit for 1 minute, then begin whisking until glossy.', @step_index := @step_index+1)
+, (@recipe_id, 'Pour into individual serving containers and place into the fridge to thoroughly thicken, at least 3-4 hours.', @step_index := @step_index+1);

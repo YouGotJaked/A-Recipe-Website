@@ -8,7 +8,9 @@ require_once(DIR_SRC."user.php");
 
 // session info
 ini_set("session.gc.maxlifetime", 3600); // keep session data for 1 hour
-ini_set("session.cookie_secure", 1); // https://www.php.net/manual/en/function.setcookie.php#125241
+if (isset($_SERVER["https"])) {
+  ini_set("session.cookie_secure", 1); // https://www.php.net/manual/en/function.setcookie.php#125241
+}
 session_set_cookie_params(3600); // clients remember session id for 1 hour
 session_start();
 session_regenerate_id(true);

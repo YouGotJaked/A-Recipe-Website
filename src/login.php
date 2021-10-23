@@ -6,7 +6,7 @@ function create_user($email, $first_name, $last_name, $password) {
   $exists = $user->select(["email" => $email], "s");
   $json_arr = json_decode($exists, true);
   
-  if (count($json_arr) > 0) {
+  if (is_array($json_arr) && count($json_arr) > 0) {
     echo "User already exists with email " . $email . "<br>";
     return false;
   }

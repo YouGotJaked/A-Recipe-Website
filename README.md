@@ -26,7 +26,7 @@ This directory contains the web-facing pages that users will actually see when t
 ### Prerequisites
 PHP version 7.2.24 or later.
 
-MariaDB 5.5.68 or later.
+MySQL or MariaDB 5.5.68 or later.
 ### Database
 #### Configuration
 To connect this website with your database, you will need to create a local configuration file on your server. Navigate to the `/local` subdirectory and create a file called `config.ini`. Open this file in a text editor and insert the following information:
@@ -37,8 +37,10 @@ host = "<server name>"
 user = "<database username>"
 pass = "<database password>"
 name = "<database>"
+port = "<port number>"
 ```
 
+**NOTE**: the port attribute is only required if you are using a non-standard port (i.e. anything other that 3306). It can be omitted if you are using port 3306 for your MySQL/MariaDB database.
 Save this file and run the test script under `test/database_test.php` to verify you can connect to the database.
 #### Creation
 Once you confirm connection to your database, you will need to create the tables, views, and insert some preliminary values. There are two ways to setup the table structure. The easiest is to simply run the `sql/setup.sql` script in your database. 
