@@ -1,5 +1,7 @@
 var starOff = "&#9734";
 var starOn = "&#9733";
+var checkMark = "&#10003";
+var xMark = "&#10007";
 
 /** https://stackoverflow.com/a/4793630 */
 function insertAfter(newNode, referenceNode) {
@@ -59,4 +61,60 @@ function onRecipeLoad() {
   favoriteStar.addEventListener("click", (event) => {
     toggleStar(event.target.innerHTML, favoriteStar, recipeId);
   });
+}
+
+function checkEmailExists(action, email, callback) {
+  const xhttp = new XMLHttpRequest();
+  xhttp.open("POST", action);
+  xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  xhttp.onload = function() {
+    callback(parseInt(this.responseText));
+  }
+  xhttp.send("function=user_exists&email="+email);
+}
+
+// https://stackoverflow.com/a/46181
+function validateEmail(email) {
+  const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(email).toLowerCase());
+}
+
+function onEmailFill() {
+  const signUpForm = document.forms[0];
+  const emailInput = signUpForm.querySelector('input[name="email"]');
+  const submitBtn = document.getElementById("signupsubmit");
+  const msgSpan = document.getElementById("emailExists");
+  
+  // only check if input is a valid email address
+  if (!validateEmail(emailInput.value)) {
+    return;
+  }
+  
+  checkEmailExists(emailInput.getAttribute("action"), emailInput.value, exists => {
+    if (exists) {
+      msgSpan.innerHTML = "An account already exists with this email.";
+      submitBtn.disabled = true;
+    } else {
+      msgSpan.innerHTML = "";
+      submitBtn.disabled = false;
+    }
+  });
+}
+
+function checkPasswordMatch() {
+  const signUpForm = document.forms[0];
+  const pwd = signUpForm.querySelector('input[name="password"]');
+  const confirmPwd = signUpForm.querySelector('input[name="confirmPassword"]');
+  const submitBtn = document.getElementById("signupsubmit");
+  const pwdMatch = document.getElementById("pwdMatch");
+  
+  if (pwd.value === confirmPwd.value) {
+    submitBtn.disabled = false;
+    pwdMatch.innerHTML = checkMark;
+    pwdMatch.style.color = "green";
+  } else {
+    submitBtn.disabled = true;
+    pwdMatch.innerHTML = xMark;
+    pwdMatch.style.color = "red";
+  }
 }

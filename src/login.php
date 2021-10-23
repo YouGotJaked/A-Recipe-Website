@@ -1,12 +1,15 @@
 <?php
 require_once "user.php";
 
-function create_user($email, $first_name, $last_name, $password) {
+function user_exists($email) {
   $user = new User();
   $exists = $user->select(["email" => $email], "s");
-  $json_arr = json_decode($exists, true);
-  
-  if (is_array($json_arr) && count($json_arr) > 0) {
+  $json_arr = json_decode($exists);
+  return $json_arr ?: false;
+}
+
+function create_user($email, $first_name, $last_name, $password) {
+  if (user_exists($email)) {
     echo "User already exists with email " . $email . "<br>";
     return false;
   }
@@ -32,9 +35,17 @@ function create_user($email, $first_name, $last_name, $password) {
 }
 
 function login($email, $password) {
-  $user = new User();
-  $exists = $user->select(["email" => $email], "s");
-  $json_obj = json_decode($exists);
-  return isset($json_obj[0]) && password_verify($password, $json_obj[0]->password_hash);
+  $user = user_exists($email);
+  return $user && password_verify($password, $user[0]->password_hash);
+}
+
+if (isset($_POST["function"])) {
+  switch ($_POST["function"]) {
+    case "user_exists":
+      echo user_exists($_POST["email"]) ? true : false;
+      break;
+    default:
+      echo 0;
+  }
 }
 ?>

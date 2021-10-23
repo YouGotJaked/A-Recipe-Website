@@ -831,6 +831,26 @@ button#signupsubmit {
 }
 */
 
+#signupsubmit:disabled {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+#pwdMatch {
+  position: absolute;
+  transform: translate(10px, 9px);
+  font-size: 28px;
+}
+
+#emailExists {
+  position: absolute;
+  font-size: 10px;
+  transform: translate(-357px, 50px);
+  width: 320px;
+  color: red;
+}
+
 p#serving {
 	text-align: center;
 	font-size: 14px;
