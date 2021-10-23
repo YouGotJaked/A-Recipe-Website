@@ -9,6 +9,8 @@ function user_exists($email) {
 }
 
 function create_user($email, $first_name, $last_name, $password) {
+  $user = new User();
+  
   if (user_exists($email)) {
     echo "User already exists with email " . $email . "<br>";
     return false;
