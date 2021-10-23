@@ -50,16 +50,16 @@ if (isset($_POST["submit"])) {
 <div class="rectangle_signup">
 <form method="POST" action="signup.php">
   <p id = "signID">Email</p>
-  <input id = "id" type="email" name="email" placeholder="bbronco@scu.edu" onkeyup="onEmailFill()" action="<?=LINK_SRC?>login.php" required>
+  <input id = "id" type="email" name="email" placeholder="bbronco@scu.edu" oninput="onEmailFill()" action="<?=LINK_SRC?>login.php" required>
   <span id="emailExists"></span>
   <p id = "signID">First name</p>
   <input id = "id" type="text" name="firstName" placeholder="Bucky" required>
   <p id = "signID">Last name</p>
   <input id = "id" type="text" name="lastName" placeholder="Bronco" required>
   <p id = "signID">Password</p>
-  <input id = "id" type="password" name="password" placeholder="ScoCos1851!" onkeyup="checkPasswordMatch()" required>
+  <input id = "id" type="password" name="password" placeholder="ScoCos1851!" oninput="checkPasswordMatch()" required>
   <p id = "signID">Confirm password</p>
-  <input id = "id" type="password" name="confirmPassword" placeholder="ScoCos1851!" onkeyup="checkPasswordMatch()" required>
+  <input id = "id" type="password" name="confirmPassword" placeholder="ScoCos1851!" oninput="checkPasswordMatch()" required>
   <span id="pwdMatch"></span>
   <button id = "signupsubmit" name="submit">SIGN UP</button>
   <!--input type="submit" name="submit" value="Submit"-->
